@@ -29,16 +29,16 @@
         <ul class="sidebar-nav">
             <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
             <li class="sidebar-brand">
-                <a href="#top"  onclick = $("#menu-close").click(); >Blueprints</a>
+                <a href="index.html">Blueprints</a>
             </li>
             <li>
                 <a href="#top" onclick = $("#menu-close").click(); >Home</a>
             </li>
             <li>
-                <a href="#services" onclick = $("#menu-close").click(); >Features</a>
+                <a href="#Dependencies" onclick = $("#menu-close").click(); >Dependencies</a>
             </li>
             <li>
-                <a href="#portfolio" onclick = $("#menu-close").click(); >Learn</a>
+                <a href="#portfolio" onclick = $("#menu-close").click(); ></a>
             </li>
             <li>
                 <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
@@ -46,19 +46,35 @@
         </ul>
     </nav>
 
+    <h1><img class="img-portfolio img-responsive" src="img/BlueprintLogo.png"></h1>
+
         <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        
-                    </div>
+        <section id="Dependencies" class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-left">
+                    <h2>What are dependencies?</h2>
+                    <p class="lead">
+                        When we talk about dependencies we are referring to whatever an object needs in order to work. These dependencies, even though can be expressed in many ways, are divided into 3 categories: Hierarchy, public references, hidden references.<br>
+                        <ul class="lead">
+                            <li>An <b>Hierarchy dependency</b> happens ,for example, in unity’s new UI system. Any UI object has to be a child of either the Canvas object or another UI element in order to work at all. So we can say that the parent/child relation is a way to declare a dependency in unity.
+                            </li>
+                            <li>A <b>public reference</b> dependency, in a unity component, is any public variable of Gameobject or Component type. This is because we are effectively exposing, especially as it shows in unity’s inspector, what the object needs.
+                            </li>
+                            <li><b>Hidden references</b> is what we call when objects that depend on other objects in the scene, without declaring them in public variables. This includes the use of singletons, getting references using FindByName, etc... These sort of dependencies are evil as they hide from the developer the requirements for your objects. Whenever we are designing a scene we should focus on what is important and make our life easier. Having to remember that we need to call an object scoreManager instead of Score or making sure we have initialized a specific singleton object when we enter the scene is boring and error prone.
+                            </li>
+                        </ul>
+                        <br>
+                    </p>
+                    <p class="lead">
+                        <b>In Blueprints, we won't use hidden dependencies and rely on you to expose your object's dependencies so we can help as much as we can.<b>
+                    </p>
                 </div>
             </div>
+            <!-- /.row -->
         </div>
+        <!-- /.container -->
+    </section>
         <!-- /#page-content-wrapper -->
 
     </div>
