@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Blueprints">
+    <meta name="author" content="Miguel Barreiro">
+
+    <title>Blueprints</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/logo-nav.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="img/BlueprintLogo.png" height="100px" alt="">
+                </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="about" class="Menubutton" >About</a>
+                    </li>
+                    <li>
+                        <a href="videos" class="Menubutton">Videos</a>
+                    </li>
+                    <li>
+                        <a href="dependencies" class="Menubutton">Dependencies</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div id="about" class="row">
+            <div class="col-lg-12">
+                <h1>Logo Nav by Start Bootstrap</h1>
+                <p>about</p>
+            </div>
+        </div>
+        <div id="videos" class="row">
+            <div class="col-lg-12">
+                <h2>Videos</h2>
+                <hr class="small">
+                    <!-- Logic window -->
+                <div class="col-md-6">
+                    <div class="portfolio-item">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/R7TR2Of0JGQ" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- Introduction to blueprints -->
+                <div class="col-md-6">
+                    <div class="portfolio-item">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/vdiJsfz8WAM" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- editing blueprints -->
+                <div class="col-md-6">
+                    <div class="portfolio-item">
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/kzCGetYRIz4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <!-- scenes -->
+                <div class="col-md-6">
+                    <div class="portfolio-item">
+                        <iframe width="100%" height="310" src="https://www.youtube.com/embed/w6wVsQsfcUg" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>                        
+                <!-- parent dependencies -->
+                <div class="col-md-6">
+                    <div class="portfolio-item">
+                        <iframe width="100%" height="310" src="https://www.youtube.com/embed/y5Xl3mG89Jw" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="dependencies" class="row">
+            <div class="col-lg-12 text-left">
+                <h2>What are dependencies?</h2>
+                <p class="lead">
+                    When we talk about dependencies we are referring to whatever an object needs in order to work. These dependencies, even though can be expressed in many ways, are divided into 3 categories: Hierarchy, public references, hidden references.<br>
+                    <ul class="lead">
+                        <li>An <b>Hierarchy dependency</b> happens ,for example, in unity’s new UI system. Any UI object has to be a child of either the Canvas object or another UI element in order to work at all. So we can say that the parent/child relation is a way to declare a dependency in unity.
+                        </li>
+                        <li>A <b>public reference</b> dependency, in a unity component, is any public variable of Gameobject or Component type. This is because we are effectively exposing, especially as it shows in unity’s inspector, what the object needs.
+                        </li>
+                        <li><b>Hidden references</b> is what we call when objects that depend on other objects in the scene, without declaring them in public variables. This includes the use of singletons, getting references using FindByName, etc... These sort of dependencies are evil as they hide from the developer the requirements for your objects. Whenever we are designing a scene we should focus on what is important and make our life easier. Having to remember that we need to call an object scoreManager instead of Score or making sure we have initialized a specific singleton object when we enter the scene is boring and error prone.
+                        </li>
+                    </ul>
+                    <br>
+                </p>
+                <p class="lead">
+                    <b>In Blueprints, we won't use hidden dependencies and rely on you to expose your object's dependencies so we can help as much as we can.<b>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(".Menubutton").click(function (eventObject) {
+           eventObject.preventDefault();
+           $(".row").hide();
+           a = $(this).attr('href');
+           //$('#content:visible').show();
+           // alert(a);
+           $("#" + a).show();
+        });
+    </script>
+
+
+</body>
+
+</html>
